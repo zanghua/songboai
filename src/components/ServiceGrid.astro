@@ -1,0 +1,74 @@
+---
+import { services } from "../data/site";
+import SectionTitle from "./SectionTitle.astro";
+
+const iconMap: Record<string, string> = {
+  consultation: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z",
+  planning: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
+  quality: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+  exam: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+  college: "M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222",
+  postgrad: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+  upgrade: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
+  ielts: "M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.75 1l5.25 5.25L12.75 11.5",
+  "study-abroad": "M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5.5-1.5c0 1.38-1.567 2.5-3.5 2.5S8.5 11.88 8.5 10.5 10.067 8 12 8s3.5 1.12 3.5 2.5zM12 18c2.5 0 4.5-1.5 4.5-3h-9c0 1.5 2 3 4.5 3z",
+  tech: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+  psychology: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
+  comprehensive: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
+};
+---
+
+<section class="py-20 md:py-28 bg-slate-50 relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-72 h-72 bg-brand-100/50 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent-100/30 rounded-full blur-3xl"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <SectionTitle
+      subtitle="CORE SERVICES"
+      title="十二大服务板块"
+      highlight=" 全方位覆盖"
+    />
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      {
+        services.map((service, i) => (
+          <div
+            class="group relative bg-white rounded-2xl p-6 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-2 transition-all duration-300 cursor-pointer border border-slate-100"
+            style={`animation: fadeInUp 0.5s ease-out forwards; animation-delay: ${i * 0.05}s; opacity: 0;`}
+          >
+            <div class="absolute top-0 left-6 right-6 h-1 rounded-full bg-gradient-to-r from-brand-600 to-brand-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 flex items-center justify-center mb-5 group-hover:from-brand-600 group-hover:to-brand-700 transition-all duration-300">
+              <svg
+                class="w-7 h-7 text-brand-600 group-hover:text-white transition-colors duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d={iconMap[service.icon]}
+                />
+              </svg>
+            </div>
+
+            <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-brand-700 transition-colors">
+              {service.title}
+            </h3>
+            <p class="text-sm text-slate-500 leading-relaxed">
+              {service.description}
+            </p>
+
+            <div class="mt-4">
+              <span class="inline-block px-2.5 py-1 rounded-md bg-slate-100 text-slate-500 text-xs font-medium">
+                {service.category}
+              </span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

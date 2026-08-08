@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  highlight?: string;
+  centered?: boolean;
+  light?: boolean;
+}
+
+const {
+  title,
+  subtitle,
+  highlight,
+  centered = true,
+  light = false,
+} = Astro.props;
+---
+
+<div class:list={["mb-12 md:mb-16", centered && "text-center"]}>
+  {
+    subtitle && (
+      <p
+        class:list={[
+          "text-sm font-semibold tracking-widest uppercase mb-3",
+          light ? "text-brand-200" : "text-brand-600",
+        ]}
+      >
+        {subtitle}
+      </p>
+    )
+  }
+  <h2
+    class:list={[
+      "text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight leading-tight",
+      light ? "text-white" : "text-slate-900",
+    ]}
+  >
+    {title}
+    {
+      highlight && (
+        <span class="text-gradient-brand">{highlight}</span>
+      )
+    }
+  </h2>
+  <div
+    class:list={[
+      "mt-5 h-1 w-20 rounded-full bg-gradient-to-r from-brand-600 to-brand-400",
+      centered && "mx-auto",
+    ]}
+  >
+  </div>
+</div>

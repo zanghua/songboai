@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  highlight?: string;
+}
+
+const { title, subtitle, highlight } = Astro.props;
+---
+
+<section class="relative pt-24 pb-20 md:pt-28 md:pb-28 bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 overflow-hidden">
+  <div class="absolute top-0 right-0 w-96 h-96 bg-brand-500/15 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent-500/10 rounded-full blur-3xl"></div>
+  <div
+    class="absolute inset-0 opacity-10"
+    style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"
+  >
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+    {subtitle && (
+      <p class="text-sm font-semibold tracking-widest text-brand-300 uppercase mb-4">
+        {subtitle}
+      </p>
+    )}
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+      {title}
+      {highlight && <span class="text-accent-400">{highlight}</span>}
+    </h1>
+    <div class="mt-6 mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-brand-400 to-accent-400"></div>
+  </div>
+</section>

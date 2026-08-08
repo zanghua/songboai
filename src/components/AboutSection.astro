@@ -1,0 +1,98 @@
+---
+import { brand } from "../data/site";
+import SectionTitle from "./SectionTitle.astro";
+import StatsBar from "./StatsBar.astro";
+---
+
+<section class="py-20 md:py-28 bg-white overflow-hidden">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- 左侧文字 -->
+      <div>
+        <SectionTitle
+          subtitle="ABOUT SONGBO"
+          title="立足教育沃土"
+          highlight=" 铸就未来"
+          centered={false}
+        />
+        <div class="space-y-5 text-base text-slate-600 leading-relaxed">
+          <p>
+            <strong class="text-slate-900">{brand.name}科技有限公司</strong>，立足优质教育资源沃土与互联网科创高地，由资深教育专家与商业运营精英强强联合，倾力打造中国全方位素质教育与应试教育赋能平台。
+          </p>
+          <p>
+            公司锚定全年级高效学习赋能、自主能力塑造的核心方向，肩负学生成长培育与教育创业服务双重使命，围绕青少年全周期成长与教育从业者发展需求，搭建全流程、一体化教育生态体系。
+          </p>
+          <p>
+            集教育咨询、生涯规划、素质教育、应试教育、高报、考研考博、专升本、雅思托福、出国留学、教育科技软硬件研发、青少年心理滋养与综合素养培育于一体，是集教学、教研、科技、服务于一身的<strong class="text-slate-900">综合性教育科技公司</strong>。
+          </p>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          {
+            ["教育咨询", "生涯规划", "素质教育", "应试教育", "出国留学", "教育科技"].map(
+              (tag) => (
+                <span class="px-4 py-2 rounded-lg bg-brand-50 text-brand-700 text-sm font-medium">
+                  {tag}
+                </span>
+              )
+            )
+          }
+        </div>
+      </div>
+
+      <!-- 右侧视觉卡片 -->
+      <div class="relative">
+        <div class="relative grid grid-cols-2 gap-4">
+          <!-- 卡片1 -->
+          <div class="space-y-4">
+            <div class="rounded-2xl bg-gradient-to-br from-brand-900 to-brand-700 p-6 text-white shadow-xl shadow-brand-900/20 aspect-[3/4] flex flex-col justify-between">
+              <svg class="w-10 h-10 text-brand-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+              </svg>
+              <div>
+                <div class="text-3xl font-black">20<span class="text-lg">+</span></div>
+                <div class="text-sm text-brand-200 mt-1">年深耕教育</div>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-slate-100 p-6 aspect-square flex flex-col justify-between shadow-lg">
+              <svg class="w-10 h-10 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <div>
+                <div class="text-4xl font-black text-gradient-brand">5大</div>
+                <div class="text-sm text-slate-500 mt-1 font-medium">业务协同运营</div>
+              </div>
+            </div>
+          </div>
+          <!-- 卡片2 -->
+          <div class="space-y-4 mt-8">
+            <div class="rounded-2xl bg-accent-500 p-6 text-white shadow-xl shadow-accent-500/30 aspect-square flex flex-col justify-between">
+              <svg class="w-10 h-10 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+              </svg>
+              <div>
+                <div class="text-4xl font-black">12大</div>
+                <div class="text-sm text-white/90 mt-1 font-medium">服务板块全覆盖</div>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-brand-50 p-6 aspect-[3/4] flex flex-col justify-between shadow-lg ring-1 ring-brand-100">
+              <svg class="w-10 h-10 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <div>
+                <div class="text-3xl font-black text-brand-900">全国</div>
+                <div class="text-sm text-brand-600 mt-1 font-medium">30+ 校区布局</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 统计数据条 -->
+    <div class="mt-20">
+      <StatsBar />
+    </div>
+  </div>
+</section>
