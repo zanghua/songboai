@@ -11,9 +11,9 @@ export const brand = {
   description:
     "松博网络科技有限公司，立足优质教育资源沃土，由资深教育专家与商业运营精英强强联合，倾力打造中国全方位素质教育与应试教育赋能平台。",
   phone: "400-888-0000",
-  email: "contact@songboedu.com",
+  email: "songboai@189.cn",
   address: "河南省濮阳市华龙区尚城大厦11层",
-  icp: "豫ICP备2025XXXXXX号",
+  icp: "豫ICP备2026038031号-1",
 };
 
 // ============ 导航菜单 ============

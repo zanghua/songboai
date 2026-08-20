@@ -96,7 +96,14 @@ const year = new Date().getFullYear();
     <div class="mt-12 pt-8 border-t border-slate-800">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
         <p>© {year} {brand.name}科技有限公司 · All Rights Reserved</p>
-        <p>{brand.icp}</p>
+        <a
+          href="https://beian.miit.gov.cn/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-slate-300 transition-colors"
+        >
+          {brand.icp}
+        </a>
       </div>
     </div>
   </div>
