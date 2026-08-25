@@ -23,6 +23,8 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .vscode/
+.vscode/*
 
 # CodeBuddy local data
 .codebuddy/
+.vscode/launch.json
