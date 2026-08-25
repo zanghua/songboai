@@ -1,0 +1,175 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+import { featuredProduct } from "../data/site";
+---
+
+<section class="py-20 md:py-28 bg-white relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-72 h-72 bg-brand-100/50 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent-100/30 rounded-full blur-3xl"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <SectionTitle
+      subtitle="FEATURED PRODUCT"
+      title="666特色产品"
+      highlight=" 四天学会一本数学书"
+    />
+
+    <!-- 核心口号区 -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 text-brand-700 text-sm font-semibold mb-5"
+      >
+        {featuredProduct.badge}
+      </div>
+      <h3
+        class="text-3xl md:text-5xl font-black text-gradient-brand leading-tight"
+      >
+        {featuredProduct.name}
+      </h3>
+      <p class="mt-4 text-lg text-slate-600 leading-relaxed">
+        {featuredProduct.tagline}
+      </p>
+      <div
+        class="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-600 to-brand-400 text-white font-bold shadow-lg shadow-brand-600/20"
+      >
+        {featuredProduct.efficiency}
+      </div>
+      <p class="mt-6 text-base text-slate-500 leading-relaxed max-w-2xl mx-auto">
+        {featuredProduct.overview}
+      </p>
+    </div>
+
+    <!-- 三大核心能力 -->
+    <div class="grid sm:grid-cols-3 gap-6 mb-16">
+      {
+        featuredProduct.coreAbilities.map((ability, i) => (
+          <div
+            class={
+              i === 1
+                ? "relative rounded-2xl p-6 bg-gradient-to-br from-brand-600 to-brand-700 text-white shadow-xl shadow-brand-600/20 ring-2 ring-brand-400"
+                : "relative rounded-2xl p-6 bg-slate-50 border border-slate-100"
+            }
+            style={`animation: fadeInUp 0.5s ease-out forwards; animation-delay: ${i * 0.1}s; opacity: 0;`}
+          >
+            <div
+              class={
+                i === 1
+                  ? "w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4"
+                  : "w-12 h-12 rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 flex items-center justify-center mb-4"
+              }
+            >
+              <span
+                class={
+                  i === 1
+                    ? "text-lg font-black text-white"
+                    : "text-lg font-black text-brand-700"
+                }
+              >
+                0{i + 1}
+              </span>
+            </div>
+            <h4 class="text-lg font-bold mb-2">{ability}</h4>
+            {i === 1 && (
+              <span
+                class="absolute top-4 right-4 text-xs font-semibold bg-white/20 px-2 py-1 rounded-full"
+              >
+                核心
+              </span>
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- 五维学习法 · 十步训练 -->
+    <div class="mb-16">
+      <h3 class="text-center text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+        五维学习法 · 十步训练
+      </h3>
+      <p class="text-center text-slate-500 mb-10">
+        以自主训练为主线，一步步建立知识系统
+      </p>
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
+        {
+          featuredProduct.methodSteps.map((step, i) => (
+            <div
+              class="rounded-xl bg-slate-50 p-4 border border-slate-100"
+              style={`animation: fadeInUp 0.5s ease-out forwards; animation-delay: ${i * 0.05}s; opacity: 0;`}
+            >
+              <div
+                class="w-8 h-8 rounded-full bg-gradient-to-br from-brand-600 to-brand-400 text-white flex items-center justify-center text-sm font-bold mb-3"
+              >
+                {i + 1}
+              </div>
+              <h4 class="font-bold text-slate-900 text-sm mb-1">{step.title}</h4>
+              {
+                step.detail && (
+                  <p class="text-xs text-slate-500 leading-relaxed break-all">
+                    {step.detail}
+                  </p>
+                )
+              }
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- 问题 vs 能力对比双栏 -->
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="rounded-2xl bg-slate-100 p-8">
+        <h3
+          class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2"
+        >
+          <span
+            class="w-8 h-8 rounded-lg bg-slate-300 text-slate-700 flex items-center justify-center font-black"
+          >
+            ✗
+          </span>
+          解决七大问题
+        </h3>
+        <ul class="space-y-3">
+          {
+            featuredProduct.problems.map((p) => (
+              <li class="flex items-start gap-3 text-slate-600">
+                <span
+                  class="mt-1 w-4 h-4 rounded-full bg-slate-300 text-slate-600 flex items-center justify-center text-[10px] font-black shrink-0"
+                >
+                  ✗
+                </span>
+                <span class="text-sm leading-relaxed">{p}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="rounded-2xl bg-brand-50 p-8">
+        <h3
+          class="text-xl font-bold text-brand-900 mb-6 flex items-center gap-2"
+        >
+          <span
+            class="w-8 h-8 rounded-lg bg-brand-600 text-white flex items-center justify-center font-black"
+          >
+            ✓
+          </span>
+          提高七大能力
+        </h3>
+        <ul class="space-y-3">
+          {
+            featuredProduct.gains.map((g) => (
+              <li class="flex items-start gap-3 text-brand-900">
+                <span
+                  class="mt-1 w-4 h-4 rounded-full bg-brand-600 text-white flex items-center justify-center text-[10px] font-black shrink-0"
+                >
+                  ✓
+                </span>
+                <span class="text-sm leading-relaxed">{g}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

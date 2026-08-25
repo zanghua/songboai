@@ -1,0 +1,70 @@
+---
+import SectionTitle from "./SectionTitle.astro";
+import { cases, caseDisclaimer } from "../data/site";
+---
+
+<section class="py-20 md:py-28 bg-slate-50 relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-72 h-72 bg-brand-100/50 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent-100/30 rounded-full blur-3xl"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <SectionTitle subtitle="CASES" title="学员提分" highlight=" 案例" />
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {
+        cases.map((c, i) => (
+          <div
+            class={`bg-white rounded-2xl p-7 shadow-[var(--shadow-card)] border border-slate-100 transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-2`}
+            style={`animation: fadeInUp 0.5s ease-out forwards; animation-delay: ${i * 0.1}s; opacity: 0;`}
+          >
+            <div class="flex items-center gap-2 mb-4">
+              <span class="inline-flex px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-semibold">
+                {c.name} · {c.stage}
+              </span>
+            </div>
+
+            <h3 class="text-3xl font-black text-gradient-brand mb-3">
+              {c.highlight}
+            </h3>
+
+            <div class="space-y-2">
+              {
+                c.before && (
+                  <p class="text-sm text-slate-500">
+                    <span class="text-slate-400">起点：</span>
+                    <span class="font-semibold text-slate-700">
+                      {c.before}
+                    </span>
+                    <span class="mx-2 text-brand-500 font-bold">→</span>
+                    <span class="font-semibold text-brand-700">
+                      {c.highlight}
+                    </span>
+                  </p>
+                )
+              }
+              <p class="text-sm text-slate-700 font-medium leading-relaxed">
+                {c.improvement}
+              </p>
+              {
+                c.detail && (
+                  <p class="text-xs text-slate-400 leading-relaxed break-all">
+                    {c.detail}
+                  </p>
+                )
+              }
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- 统一声明 -->
+    <div class="mt-10 text-center">
+      <p
+        class="inline-flex rounded-xl bg-brand-50 text-brand-700 px-6 py-3 text-sm font-medium"
+      >
+        {caseDisclaimer}
+      </p>
+    </div>
+  </div>
+</section>
